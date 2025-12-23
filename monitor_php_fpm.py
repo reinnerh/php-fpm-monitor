@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(me
 asg = boto3.client('autoscaling', region_name='sa-east-1')
 ssm = boto3.client('ssm', region_name='sa-east-1')
 
-ASG_NAME = 'TESTER-IBAC'
+ASG_NAME = 'asg-name'
 
 def monitor_php_fpm(instance_id=None):
     """
@@ -162,7 +162,7 @@ if __name__ == "__main__":
         if sys.argv[1] == "--help":
             print("Uso:")
             print("  python3 monitor_php_fpm.py                    # Monitora todas as instâncias")
-            print("  python3 monitor_php_fpm.py i-1234567890abcdef0  # Monitora instância específica")
+            print("  python3 monitor_php_fpm.py i-XXXXXXXXXX  # Monitora instância específica")
             print("")
             print("Este script monitora especificamente:")
             print("  - Configurações do PHP-FPM (pm.max_children, etc.)")
